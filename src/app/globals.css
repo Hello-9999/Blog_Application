@@ -42,7 +42,7 @@ body {
 #homepage {
   background: linear-gradient(rgb(18 18 18 / 69%), rgb(0 0 0 / 88%)),
     url("../../public/Depositphotos_129609120_l-2015-3626688964.jpg");
-  background-size:  cover;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
@@ -53,3 +53,14 @@ body {
   left: 0;
   right: 0;
 }
+
+#contact {
+  position: relative;
+}
+#contact_body {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+}
+
