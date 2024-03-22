@@ -1,7 +1,7 @@
 // fetch blog data using SSG
 export const getBlogs = async () => {
   const data = await fetch(process.env.SERVER_URL, {
-    next: { revalidate: 60 },
+    cache: "force-cache",
   });
 
   return data.json();
@@ -13,6 +13,3 @@ export const getBlogsDetails = async (id) => {
   });
   return data.json();
 };
-
-
-
