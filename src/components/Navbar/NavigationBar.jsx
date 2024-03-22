@@ -43,31 +43,31 @@ const Navigationbar = () => {
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link href="/contact_us" color="foreground" aria-current="page">
-              Contact Us
+            <Link href="/contact" color="foreground" aria-current="page">
+              Contact 
             </Link>
           </NavbarItem>
         </NavbarContent>
 
         <NavbarMenu className=" bg-slate-900 text-center" id="nav_ul">
           <NavbarMenuItem>
-            <Link href="#" size="lg" color="!foreground">
+            <Link href="/" size="lg" color="!foreground">
               {" "}
               Home
             </Link>
           </NavbarMenuItem>
 
           <NavbarMenuItem className="mt-4">
-            <Link href="#" size="lg" color="!foreground">
+            <Link href="/blogs" size="lg" color="!foreground">
               {" "}
                Blogs
             </Link>
           </NavbarMenuItem>
 
           <NavbarMenuItem className="mt-4">
-            <Link href="/contactus" size="lg" color="!foreground">
+            <Link href="/contact" size="lg" color="!foreground">
               {" "}
-              Contact Us{" "}
+              Contact {" "}
             </Link>
           </NavbarMenuItem>
         </NavbarMenu>
