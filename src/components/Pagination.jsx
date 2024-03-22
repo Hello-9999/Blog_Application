@@ -1,20 +1,28 @@
 "use client";
-import Blogs from "@/app/blogs/page";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Divider,
+  Image,
+  Button,
+} from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
+
 import React, { useState } from "react";
 
-const Pagination = ({ nextpage, dataPerPage, totaldata, Blogdata }) => {
-  let page = 1;
-  //   console.log(nextpage, "nextpage");
-  //   console.log(dataPerPage, "data perpage");
-  //   console.log(totaldata.length / 10, "totaldata");
+const Pagination = ({ BlogsDetails }) => {
+  let dataPerPage = 4;
   const [currentpage, setcurrentpage] = useState(1);
   const lastIndex = currentpage * dataPerPage;
   const firstIndex = lastIndex - dataPerPage;
 
-  const records = totaldata.slice(firstIndex, lastIndex);
+  const records = BlogsDetails.slice(firstIndex, lastIndex);
   console.log(records, "recors");
-  const pg = Math.ceil(totaldata.length / Number(dataPerPage));
+  const pg = Math.ceil(BlogsDetails.length / Number(dataPerPage));
   const pageNumber = [...Array(pg + 1).keys()].slice(1);
+
+  console.log(pageNumber, "page");
 
   const handlerNextPage = (e) => {
     e.preventDefault();
@@ -23,28 +31,74 @@ const Pagination = ({ nextpage, dataPerPage, totaldata, Blogdata }) => {
     }
   };
 
+  console.log(currentpage, "current page");
   const handlerPrevPage = (e) => {
-    e.preventdefault();
+    e.preventDefault();
     if (currentpage !== firstIndex) {
       setcurrentpage(currentpage - 1);
     }
   };
-  Blogdata.push(records);
   return (
-    <div className=" w-2/6 m-auto">
-      <nav className="flex gap-2 m-auto justify-evenly">
+    <div className=" ">
+      <div
+        className=" gap-9 mt-6 pb-6 w-10/12 m-auto md:w-5/6 justify-evenly "
+        id="Blog_Card"
+      >
+        {records &&
+          records.map((val, index) => {
+            return (
+              <Card
+                className="  ,bg-neutral-100	hover:bg-slate-230 "
+                key={val.index}
+                style={{ border: "1px solid black" }}
+              >
+                {" "}
+                <Link href={`/blogs/${val.id}`}>
+                  <CardHeader className="">
+                    <p className=" text-justify font-semibold p-3">
+                      {val.title}
+                    </p>{" "}
+                  </CardHeader>
+                </Link>
+                <Divider className="bg-red-300" />
+                <CardBody style={{ overflow: "hidden" }}>
+                  <div className="img m-auto">
+                    <Image
+                      src={`https://picsum.photos/seed/${val.id}/550/300`}
+                    />
+                  </div>
+                  <p className="mt-5 mb-5">
+                    {val.body.substring(0, 100) + " ..."}
+                    <Link href={`/blogs/${val.id}`} color="primary">
+                      {" "}
+                      Read More
+                    </Link>
+                  </p>
+                </CardBody>
+              </Card>
+            );
+          })}
+      </div>
+
+      <nav className="flex gap-2 m-auto justify-evenly  pt-6 pb-6 ">
         <div className="pre">
-          <button onClick={handlerPrevPage}> previous</button>
+          <Button
+            onClick={handlerPrevPage}
+            className={currentpage == 1 ? "hidden" : ""}
+          >
+            {" "}
+            Previous
+          </Button>
         </div>
 
-        <ul className="flex gap-1 md:gap-3  justify-between">
-          {pageNumber.map((val, i) => {
-            return <li key={i}>{val}</li>;
-          })}
-        </ul>
-
         <div className="pre">
-          <button onClick={handlerNextPage}> next</button>
+          <Button
+            onClick={handlerNextPage}
+            className={pageNumber.length <= currentpage ? "hidden" : ""}
+          >
+            {" "}
+            Next
+          </Button>
         </div>
       </nav>
     </div>
