@@ -1,12 +1,6 @@
 import { Link } from "@nextui-org/react";
 import { getBlogs } from "../../../services/apiHandler";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Divider,
-  Image,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Divider, Image } from "@nextui-org/react";
 
 const Blogs = async () => {
   const blogsdata = await getBlogs();
@@ -40,7 +34,9 @@ const Blogs = async () => {
                 <Divider className="bg-red-300" />
                 <CardBody style={{ overflow: "hidden" }}>
                   <div className="img m-auto">
-                    <Image src={`https://picsum.photos/id/${val.id}/550/300`} />
+                    <Image
+                      src={`https://picsum.photos/seed/${val.id}/550/300`}
+                    />
                   </div>
                   <p className="mt-5 mb-5">
                     {val.body.substring(0, 100) + " ..."}

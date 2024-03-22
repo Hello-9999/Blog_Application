@@ -45,7 +45,7 @@ const Pages = async ({ params }) => {
         </div>
 
         <div className="img">
-          <Image src={`https://picsum.photos/id/${postdetails.id}/700/350`} />{" "}
+          <Image src={`https://picsum.photos/seed/${postdetails.id}/700/350`} />{" "}
         </div>
 
         <div className="content">
