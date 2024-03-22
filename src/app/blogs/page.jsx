@@ -1,9 +1,15 @@
 import { Link } from "@nextui-org/react";
 import { getBlogs } from "../../../services/apiHandler";
 import { Card, CardHeader, CardBody, Divider, Image } from "@nextui-org/react";
+import Pagination from "@/components/Pagination";
 
 const Blogs = async () => {
   const blogsdata = await getBlogs();
+
+  let nextpage = 1;
+  let dataPerPage = 5;
+  let totaldata = blogsdata;
+  let Blogdata = [];
 
   return (
     <div className=" bg-slate-400">
@@ -50,6 +56,13 @@ const Blogs = async () => {
             );
           })}
       </div>
+      <Pagination
+        nextpage={nextpage}
+        dataPerPage={dataPerPage}
+        totaldata={totaldata}
+        Blogdata={Blogdata}
+      />
+      ;
     </div>
   );
 };
