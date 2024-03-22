@@ -39,7 +39,7 @@ const Navigationbar = () => {
           <NavbarItem>
           
             <Link href="/blogs" aria-current="page" color="foreground">
-              Our Blogs
+               Blogs
             </Link>
           </NavbarItem>
           <NavbarItem>
@@ -60,12 +60,12 @@ const Navigationbar = () => {
           <NavbarMenuItem className="mt-4">
             <Link href="#" size="lg" color="!foreground">
               {" "}
-              Our Blogs
+               Blogs
             </Link>
           </NavbarMenuItem>
 
           <NavbarMenuItem className="mt-4">
-            <Link href="contactus" size="lg" color="!foreground">
+            <Link href="/contactus" size="lg" color="!foreground">
               {" "}
               Contact Us{" "}
             </Link>
